@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+import java.time.LocalDate; //to display the current date using this import statement
 
 public class Patient extends Person { //patient is a subclass of the super class person
                                         //-----------INHERITANCE OOP CONCEPT FOLLOWS HERE----------------
