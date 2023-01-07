@@ -3,35 +3,32 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.ArrayList;  //importing arraylist class
 import java.util.Scanner;
 import java.time.*;
 
-public class WestminsterSkinConsultationManager implements SkinConsultationManager {
+public class WestminsterSkinConsultationManager implements SkinConsultationManager { //interface implementation
     static Scanner input = new Scanner(System.in);
     public static ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
-    private static final int MAX_DOCTORS = 10;
+    private static final int MAX_DOCTORS = 10; //to enter maximum 10 number of records usage of an arraylist
 
-//    private static test Test = new test();
 
-//    public WestminsterSkinConsultationManager() {
-//        this.doctorList = new ArrayList<>();
-//    }
 
-    // Displays a menu of management actions for the user to choose from.
+    // To display a menu of the management and giving the user to choose options.
     public void displayMenu() throws IOException {
         Boolean displayMenu = true;
         while (displayMenu) {
-            System.out.println("\n------------- Welcome to Skin Consultation Centre -------------");
+            System.out.println("\n------------- A Warm Welcome to Skin the  Consultation Centre -------------");
             System.out.println("==============================================================\n");
-            System.out.println("Enter 1 to add a new doctor");
-            System.out.println("Enter 2 to delete a doctor");
-            System.out.println("Enter 3 to print the list of doctors");
-            System.out.println("Enter 4 to save doctors details to a file");
-            System.out.println("Enter 5 to load data from a file");
-            System.out.println("Enter 6 to Launch GUI");
-            System.out.println("Enter 0 to Exit");
+            System.out.println("Enter 1 :to add a new doctor--");
+            System.out.println("Enter 2 :to delete a doctor--");
+            System.out.println("Enter 3 :to print the list of doctors--");
+            System.out.println("Enter 4 :to save doctors details to a file--");
+            System.out.println("Enter 5 :to load data from a file--");
+            System.out.println("Enter 6 :to Launch GUI--");
+            System.out.println("Enter 0 :to Exit--");
             System.out.println("=======================================================");
+            System.out.println("----Enter your Choice per preference----");
             String select = input.next();
             switch (select) {
                 case "1":
@@ -72,21 +69,21 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             try {
                 if (doctorList.size() < MAX_DOCTORS) {
 
-                    System.out.println("Enter your First name : ");
+                    System.out.println("Enter the First name : ");
                     String fname = input.next();
 
-                    System.out.println("Enter your Surname : ");
+                    System.out.println("Enter the Surname : ");
                     String sname = input.next();
 
-                    System.out.print("Enter your date of birth (yyyy/mm/dd): ");
+                    System.out.print("Enter the date of birth (yyyy/mm/dd): ");
                     String date = input.next();
                     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/d");
                     LocalDate dob = LocalDate.parse(date,dateFormatter);
 
-                    System.out.println("Enter your Mobile Number : ");
+                    System.out.println("Enter the Mobile Number : ");
                     String mobileNum = input.next();
 
-                    System.out.println("Enter your Medical Licence Number : ");
+                    System.out.println("Enter the Medical Licence Number : ");
                     String medicalLicenseNumber = input.next();
 
                     System.out.println("Enter Specialization : (cosmetic dermatology, medical dermatology, paediatric,dermatology)");
@@ -120,19 +117,19 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
     private void viewDoctor() {
         System.out.println("\n--------View Doctor-----------");
         for (Doctor DocObj : doctorList) {
-            System.out.println("Doctor's first Name " + DocObj.getFirstName());
-            System.out.println("Doctor's surName " + DocObj.getSurname());
-            System.out.println("Doctor's Date of Birth " + DocObj.getDob());
-            System.out.println("Doctor's Mobile Number " + DocObj.getMobileNumber());
-            System.out.println("Doctor's Medical Licence " + DocObj.getMedicalLicenseNumber());
-            System.out.println("Doctor's Specialization " + DocObj.getSpecialization() + "\n" );
+            System.out.println("Doctor's first name is " + DocObj.getFirstName());
+            System.out.println("Doctor's surname is " + DocObj.getSurname());
+            System.out.println("Doctor's Date of Birth is" + DocObj.getDob());
+            System.out.println("Doctor's Mobile Number is " + DocObj.getMobileNumber());
+            System.out.println("Doctor's Medical Licence is " + DocObj.getMedicalLicenseNumber());
+            System.out.println("Doctor's Specialization is on " + DocObj.getSpecialization() + "\n" );
         }
     }
 
     private void deleteDoctor() {
         System.out.println("\n-----------Delete Doctor-----------");
         boolean x = true;
-        System.out.println("Enter medical LicenseNumber of Doctor to be deleted");
+        System.out.println("Enter the medical LicenseNumber of Doctor to be deleted");
         while (x) {
             try {
                 String medicalLicenseNumber = input.next();
