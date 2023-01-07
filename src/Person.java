@@ -1,9 +1,10 @@
 import java.time.LocalDate;
 
-public class Person {
+public class Person {               //Person is a superclass
     // instance variables
-    private String firstName;
-    private String surname;
+    private String firstName;       //these four variables are restricted using the private access modifier
+                                    //---------------ENCAPSULATION METHOD IS BEING USED HERE ------------------------------------
+    private String surname;         //restricted access
     private LocalDate dob;
     private String mobileNumber;
 
