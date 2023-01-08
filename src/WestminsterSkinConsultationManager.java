@@ -1,9 +1,12 @@
+import javax.print.Doc;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;  //importing arraylist class
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.time.*;
 
@@ -18,7 +21,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
     public void displayMenu() throws IOException {
         Boolean displayMenu = true;
         while (displayMenu) {
-            System.out.println("\n------------- A Warm Welcome to Skin the  Consultation Centre -------------");
+            System.out.println("\n------------- A Warm Welcome to Skin Consultation Centre -------------");
             System.out.println("==============================================================\n");
             System.out.println("Enter 1 :to add a new doctor--");
             System.out.println("Enter 2 :to delete a doctor--");
@@ -101,8 +104,8 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                     doctorList.add(doctor);
                     break;
                 }else {
-                    System.out.println("Maximum Doctor counter is exceeded."); //maximum  doctors which can be added are only 10
-                    //Queue Method
+                    System.out.println("Maximum Doctor counter is exceeded.");//maximum  doctors which can be added are only 10
+                    break; //stops the process and give an output stating maximum count exceeded after 10 records inserted     //Queue Method
                 }
             } catch (Exception e) {
                 //if user entered wrong input
@@ -116,17 +119,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 
     //to the view input doctor list
 
-    private void viewDoctor() {
-        System.out.println("\n--------View Doctor-----------");
-        for (Doctor DocObj : doctorList) {
-            System.out.println("Doctor's first name is " + DocObj.getFirstName());
-            System.out.println("Doctor's surname is " + DocObj.getSurname());
-            System.out.println("Doctor's Date of Birth is" + DocObj.getDob());
-            System.out.println("Doctor's Mobile Number is " + DocObj.getMobileNumber());
-            System.out.println("Doctor's Medical Licence is " + DocObj.getMedicalLicenseNumber());
-            System.out.println("Doctor's Specialization is on " + DocObj.getSpecialization() + "\n" );
-        }
-    }
+
 
     //to delete an added doctor from the list using the medical license number
     private void deleteDoctor() {
@@ -155,11 +148,42 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
     }
 
+    private void viewDoctor() {
+        System.out.println("\n--------View Doctor-----------");
+        Collections.sort(doctorList, new Comparator<Doctor>() { // https://www.geeksforgeeks.org/collections-sort-java-examples/
+            @Override
+            public int compare(Doctor d1, Doctor d2) {
+                return d1.getSurname().compareTo(d2.getSurname());
+            }
+
+        });
+
+
+        for (Doctor DocObj : doctorList) {
+            System.out.println("Doctor's first name is " + DocObj.getFirstName());
+            System.out.println("Doctor's surname is " + DocObj.getSurname());
+            System.out.println("Doctor's Date of Birth is" + DocObj.getDob());
+            System.out.println("Doctor's Mobile Number is " + DocObj.getMobileNumber());
+            System.out.println("Doctor's Medical Licence is " + DocObj.getMedicalLicenseNumber());
+            System.out.println("Doctor's Specialization is on " + DocObj.getSpecialization() + "\n" );
+        }
+    }
+
 
     //save data into .txt file
     public void storeData() throws IOException {
+
         try {
             FileWriter output = new FileWriter("SkinConsultationCentre.txt"); //Create FileWriter and create .txt file
+
+            Collections.sort(doctorList, new Comparator<Doctor>() { // https://www.geeksforgeeks.org/collections-sort-java-examples/
+                @Override
+                public int compare(Doctor d1, Doctor d2) {
+                    return d1.getSurname().compareTo(d2.getSurname());
+                }
+
+            });
+
             for (Doctor DocObj : doctorList) {
                 //write data into txt file
                 output.write("Doctor's first Name : " + DocObj.getFirstName()+ "\n");
@@ -175,11 +199,21 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             System.out.println("Error"); //print stating an error if the input is incorrect
             e.printStackTrace();
         }
+
     }
+
+
 
     //read Data from .txt file
     public void readData() {
         System.out.println("-------------------- Load Doctor's Data --------------------\n");
+            Collections.sort(doctorList, new Comparator<Doctor>() {  // https://www.geeksforgeeks.org/collections-sort-java-examples/
+            @Override
+            public int compare(Doctor d1, Doctor d2) {
+                return d1.getSurname().compareTo(d2.getSurname());
+            }
+
+        });
         try {
             File readData = new File("SkinConsultationCentre.txt"); //create object
             Scanner read = new Scanner(readData);

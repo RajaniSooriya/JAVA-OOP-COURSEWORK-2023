@@ -11,7 +11,7 @@ public class GUI_Details extends JFrame implements ActionListener {
     JFrame frame = new JFrame();
     JTextField textField = new JTextField();
 
-    ArrayList<Patient> patientDeatils = GUI_patient.pat_init;
+    ArrayList<Patient> patientDetails = GUI_patient.pat_init;
     ArrayList<Consultation> consultation_details =GUI_patient.consultation;
 
     GUI_Details(){

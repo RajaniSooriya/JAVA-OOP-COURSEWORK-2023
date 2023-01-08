@@ -1,0 +1,28 @@
+Doctor's first Name : shantha
+Doctor's surName : baby
+Doctor's Date of Birth : 2006-09-09
+Doctor's Mobile Number : 234567
+Doctor's Medical Licence : 3456
+Doctor's Specialization : medical
+
+Doctor's first Name : lahini
+Doctor's surName : balasooriya
+Doctor's Date of Birth : 2008-09-01
+Doctor's Mobile Number : 07750926354
+Doctor's Medical Licence : 2344
+Doctor's Specialization : cosmetic
+
+Doctor's first Name : rajani
+Doctor's surName : sooriyaarachchi
+Doctor's Date of Birth : 2006-09-09
+Doctor's Mobile Number : 0775081253
+Doctor's Medical Licence : 2345
+Doctor's Specialization : medical
+
+Doctor's first Name : zainab
+Doctor's surName : zameena
+Doctor's Date of Birth : 2009-09-11
+Doctor's Mobile Number : 0775082364
+Doctor's Medical Licence : 2345
+Doctor's Specialization : medical
+
