@@ -9,7 +9,7 @@ import java.time.*;
 
 public class WestminsterSkinConsultationManager implements SkinConsultationManager { //interface implementation
     static Scanner input = new Scanner(System.in);
-    public static ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
+    public static ArrayList<Doctor> doctorList = new ArrayList<Doctor>(); //arraylist objects called doctor list which will store doctor
     private static final int MAX_DOCTORS = 10; //to enter maximum 10 number of records usage of an arraylist
 
 
@@ -54,7 +54,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Please enter a valid input...");
+                    System.out.println("Please enter a valid input..."); //if the input results doesn't meet the criteria
             }
         }
     }
@@ -101,7 +101,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                     doctorList.add(doctor);
                     break;
                 }else {
-                    System.out.println("Maximum Doctor counter is exceeded.");
+                    System.out.println("Maximum Doctor counter is exceeded."); //maximum  doctors which can be added are only 10
                     //Queue Method
                 }
             } catch (Exception e) {
@@ -113,6 +113,8 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
 
     }
+
+    //to the view input doctor list
 
     private void viewDoctor() {
         System.out.println("\n--------View Doctor-----------");
@@ -126,6 +128,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
     }
 
+    //to delete an added doctor from the list using the medical license number
     private void deleteDoctor() {
         System.out.println("\n-----------Delete Doctor-----------");
         boolean x = true;
@@ -169,7 +172,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             output.close(); //close the writer
             System.out.println("Data is successfully stored in the file...");
         } catch (IOException e) {
-            System.out.println("Error");
+            System.out.println("Error"); //print stating an error if the input is incorrect
             e.printStackTrace();
         }
     }
@@ -192,9 +195,10 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
     }
 
+    //calling the above methods to the main screen and payment screen
     public void GUI(){
         GUI_mainScreen gui = new GUI_mainScreen();
-GUI_payment pay = new GUI_payment();
+        GUI_payment pay = new GUI_payment();
     }
 
 
