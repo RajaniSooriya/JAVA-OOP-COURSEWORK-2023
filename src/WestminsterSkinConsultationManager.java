@@ -117,15 +117,11 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 
     }
 
-    //to the view input doctor list
-
-
-
     //to delete an added doctor from the list using the medical license number
     private void deleteDoctor() {
         System.out.println("\n-----------Delete Doctor-----------");
         boolean x = true;
-        System.out.println("Enter the medical LicenseNumber of Doctor to be deleted");
+        System.out.println("Enter the medical LicenseNumber of Doctor to be deleted :");
         while (x) {
             try {
                 String medicalLicenseNumber = input.next();
@@ -133,6 +129,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                     if (DocObj.getMedicalLicenseNumber().equals((medicalLicenseNumber))) {
                         doctorList.remove(DocObj);
                         System.out.println(medicalLicenseNumber + " is Deleted...");
+                        System.out.println("No of doctors in the system is");
                         x = false;
                         break;
                     }
@@ -147,6 +144,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             }
         }
     }
+    //to the view input doctor list
 
     private void viewDoctor() {
         System.out.println("\n--------View Doctor-----------");

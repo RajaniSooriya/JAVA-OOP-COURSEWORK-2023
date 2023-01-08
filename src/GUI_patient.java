@@ -9,6 +9,15 @@ import java.util.ArrayList;
 
 //git clone test
 public class GUI_patient extends JFrame implements ActionListener {
+
+    //used in encryption
+    Encryption encryption = new Encryption();
+    final String secretKey = "secrete";
+    private String JTextArea;
+    String encryptedString = encryption.encrypt(JTextArea, secretKey);
+    String decryptedString = encryption.decrypt(encryptedString, secretKey);
+
+    //encryption and decryption
     private Container container;
     private JLabel label1, label2,cost;
     private JButton nextBtn, addImageBtn,Cost;
@@ -139,7 +148,8 @@ public class GUI_patient extends JFrame implements ActionListener {
         comboBox.setLocation(200, 420);
         container.add(comboBox);
         comboBox.addActionListener(this);
-
+        
+        
         label2 = new JLabel("Description");
         label2.setSize(300, 100);
         label2.setFont(new Font("MV Boil", Font.PLAIN, 17));
