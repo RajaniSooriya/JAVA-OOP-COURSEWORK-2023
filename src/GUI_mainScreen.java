@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class GUI_mainScreen extends JFrame implements ActionListener  {
     private Container container;
-    private JLabel heading,img;
-    private JButton patientBtn,doctorBtn;
-    JFrame frame = new JFrame();
+    private JLabel heading,img;//a component for placing text in a container
+    private JButton patientBtn,doctorBtn; //a labeled button that had platform independent implementation
+    JFrame frame = new JFrame(); //jframe works like the main window here where component are added to create a gui
     ArrayList<Doctor> list = WestminsterSkinConsultationManager.doctorList;
     GUI_mainScreen() {
 

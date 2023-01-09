@@ -120,6 +120,16 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
     //to delete an added doctor from the list using the medical license number
     private void deleteDoctor() {
         System.out.println("\n-----------Delete Doctor-----------");
+        Collections.sort(doctorList, new Comparator<Doctor>() { // https://www.geeksforgeeks.org/collections-sort-java-examples/
+            @Override
+            public int compare(Doctor d1, Doctor d2) {
+                return d1.getSurname().compareTo(d2.getSurname());
+            }
+
+        });
+
+
+
         boolean x = true;
         System.out.println("Enter the medical LicenseNumber of Doctor to be deleted :");
         while (x) {
@@ -129,7 +139,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                     if (DocObj.getMedicalLicenseNumber().equals((medicalLicenseNumber))) {
                         doctorList.remove(DocObj);
                         System.out.println(medicalLicenseNumber + " is Deleted...");
-                        System.out.println("No of doctors in the system is");
+
                         x = false;
                         break;
                     }
@@ -160,7 +170,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         for (Doctor DocObj : doctorList) {
             System.out.println("Doctor's first name is " + DocObj.getFirstName());
             System.out.println("Doctor's surname is " + DocObj.getSurname());
-            System.out.println("Doctor's Date of Birth is" + DocObj.getDob());
+            System.out.println("Doctor's Date of Birth is " + DocObj.getDob());
             System.out.println("Doctor's Mobile Number is " + DocObj.getMobileNumber());
             System.out.println("Doctor's Medical Licence is " + DocObj.getMedicalLicenseNumber());
             System.out.println("Doctor's Specialization is on " + DocObj.getSpecialization() + "\n" );
